@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
+import CatMotif from './CatMotif';
 
 const GreetingPanel = () => {
   const [showLetter, setShowLetter] = useState(false);
@@ -14,18 +15,25 @@ const GreetingPanel = () => {
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className="relative max-w-2xl w-full dreamy-card rounded-3xl p-12 film-grain"
       >
-        {/* Cat silhouette watermark */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.06 }}
-          transition={{ delay: 0.5, duration: 1 }}
-          whileHover={{ rotate: 3 }}
-          className="absolute top-8 right-8 w-16 h-16 pointer-events-none"
-        >
-          <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full text-foreground">
-            <path d="M12 2C10.9 2 10 2.9 10 4V7C8.9 7 8 7.9 8 9V14C8 16.21 9.79 18 12 18C14.21 18 16 16.21 16 14V9C16 7.9 15.1 7 14 7V4C14 2.9 13.1 2 12 2M12 10C13.66 10 15 11.34 15 13C15 14.66 13.66 16 12 16C10.34 16 9 14.66 9 13C9 11.34 10.34 10 12 10M7 11C6.45 11 6 11.45 6 12C6 12.55 6.45 13 7 13C7.55 13 8 12.55 8 12C8 11.45 7.55 11 7 11M17 11C16.45 11 16 11.45 16 12C16 12.55 16.45 13 17 13C17.55 13 18 12.55 18 12C18 11.45 17.55 11 17 11Z" />
-          </svg>
-        </motion.div>
+        {/* Enhanced cat motifs */}
+        <CatMotif 
+          size="md" 
+          opacity={0.08} 
+          className="absolute top-8 right-8"
+          variant="sitting"
+        />
+        <CatMotif 
+          size="sm" 
+          opacity={0.05} 
+          className="absolute top-12 left-8"
+          variant="sleeping"
+        />
+        <CatMotif 
+          size="sm" 
+          opacity={0.04} 
+          className="absolute bottom-16 right-12"
+          variant="walking"
+        />
 
         {/* Luminous edge highlight */}
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
@@ -170,16 +178,25 @@ const GreetingPanel = () => {
                 {/* Letter content container */}
                 <div className="relative h-full overflow-y-auto p-8 md:p-12">
                   <div className="max-w-2xl mx-auto space-y-6">
-                    {/* Cat watermark */}
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 0.05 }}
-                      className="absolute top-12 left-1/2 -translate-x-1/2 w-24 h-24 pointer-events-none"
-                    >
-                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-                        <path d="M12 2C10.9 2 10 2.9 10 4V7C8.9 7 8 7.9 8 9V14C8 16.21 9.79 18 12 18C14.21 18 16 16.21 16 14V9C16 7.9 15.1 7 14 7V4C14 2.9 13.1 2 12 2M12 10C13.66 10 15 11.34 15 13C15 14.66 13.66 16 12 16C10.34 16 9 14.66 9 13C9 11.34 10.34 10 12 10M7 11C6.45 11 6 11.45 6 12C6 12.55 6.45 13 7 13C7.55 13 8 12.55 8 12C8 11.45 7.55 11 7 11M17 11C16.45 11 16 11.45 16 12C16 12.55 16.45 13 17 13C17.55 13 18 12.55 18 12C18 11.45 17.55 11 17 11Z" />
-                      </svg>
-                    </motion.div>
+                    {/* Enhanced cat watermarks in letter */}
+                    <CatMotif 
+                      size="lg" 
+                      opacity={0.06} 
+                      className="absolute top-12 left-1/2 -translate-x-1/2"
+                      variant="sleeping"
+                    />
+                    <CatMotif 
+                      size="sm" 
+                      opacity={0.03} 
+                      className="absolute top-24 left-12"
+                      variant="sitting"
+                    />
+                    <CatMotif 
+                      size="sm" 
+                      opacity={0.03} 
+                      className="absolute top-24 right-12"
+                      variant="sitting"
+                    />
 
                     <div className="pt-8 text-center">
                       <div className="prose prose-lg max-w-none text-foreground/90 font-light leading-relaxed">
@@ -230,11 +247,8 @@ const GreetingPanel = () => {
           <motion.div
             animate={{ rotate: [0, 5, 0, -5, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-            className="w-6 h-6 opacity-30"
           >
-            <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full text-foreground">
-              <path d="M12 2C10.9 2 10 2.9 10 4V7C8.9 7 8 7.9 8 9V14C8 16.21 9.79 18 12 18C14.21 18 16 16.21 16 14V9C16 7.9 15.1 7 14 7V4C14 2.9 13.1 2 12 2M12 10C13.66 10 15 11.34 15 13C15 14.66 13.66 16 12 16C10.34 16 9 14.66 9 13C9 11.34 10.34 10 12 10M7 11C6.45 11 6 11.45 6 12C6 12.55 6.45 13 7 13C7.55 13 8 12.55 8 12C8 11.45 7.55 11 7 11M17 11C16.45 11 16 11.45 16 12C16 12.55 16.45 13 17 13C17.55 13 18 12.55 18 12C18 11.45 17.55 11 17 11Z" />
-            </svg>
+            <CatMotif size="sm" opacity={0.3} animated={false} variant="sitting" />
           </motion.div>
 
           <p className="text-sm text-muted-foreground font-light">

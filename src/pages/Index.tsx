@@ -5,6 +5,7 @@ import WelcomeScreen from '@/components/WelcomeScreen';
 import GreetingPanel from '@/components/GreetingPanel';
 import FilmGrain from '@/components/FilmGrain';
 import FloatingParticles from '@/components/FloatingParticles';
+import BackgroundSound from '@/components/BackgroundSound';
 
 type Phase = 'theme-selection' | 'welcome' | 'greeting';
 
@@ -35,6 +36,7 @@ const Index = () => {
     <>
       <FilmGrain />
       <FloatingParticles />
+      <BackgroundSound />
       
       <div className="relative min-h-screen">
         <AnimatePresence mode="wait">

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import CatMotif from './CatMotif';
 
 interface WelcomeScreenProps {
   onEnter: () => void;
@@ -90,6 +91,20 @@ const WelcomeScreen = ({ onEnter }: WelcomeScreenProps) => {
           />
         ))}
       </div>
+
+      {/* Subtle cat motifs */}
+      <CatMotif 
+        size="md" 
+        opacity={0.04} 
+        className="absolute top-16 left-16"
+        variant="walking"
+      />
+      <CatMotif 
+        size="sm" 
+        opacity={0.03} 
+        className="absolute bottom-24 right-20"
+        variant="sitting"
+      />
     </div>
   );
 };

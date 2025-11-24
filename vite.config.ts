@@ -7,7 +7,7 @@ import { componentTagger } from "lovable-tagger";
 export default defineConfig(({ mode }) => ({
   // 🚀 ADD THIS LINE
   // Replace 'web-app-repo' with the actual name of your GitHub repository
-  base: "/welcome-home", 
+  base: "/welcome-home/", 
   
   server: {
     host: "::",
